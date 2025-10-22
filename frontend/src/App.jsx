@@ -44,6 +44,7 @@ function ChatApp() {
             
             // Use the Render-deployed backend URL, falling back to localhost during local dev
               const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+              console.log("connecting to backend at: ",backendUrl);//debugging line
               const socketInstance = io(backendUrl, {
               transports: ["websocket"],    // optional: speeds up connection
         });
