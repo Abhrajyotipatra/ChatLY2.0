@@ -17,6 +17,11 @@ app.use(cookieParser());
 
 
 
+app.get('/', (req, res) => {
+  res.send('✅ Backend server is running!');
+});
+
+
 
 // Routes
 const authRoutes = require('./routes/auth.routes');
