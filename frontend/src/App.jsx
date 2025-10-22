@@ -40,7 +40,14 @@ function ChatApp() {
 
     useEffect(() => {
         if (user) {
-            let socketInstance = io("http://localhost:3000");
+            // let socketInstance = io("http://localhost:3000");   //privous line
+            
+            // Use the Render-deployed backend URL, falling back to localhost during local dev
+              const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+              const socketInstance = io(backendUrl, {
+              transports: ["websocket"],    // optional: speeds up connection
+        });
+
             setSocket(socketInstance);
 
             socketInstance.on('ai-message-response', (response) => {

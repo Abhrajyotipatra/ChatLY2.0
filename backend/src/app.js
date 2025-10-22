@@ -8,7 +8,11 @@ const app = express();
 
 // CORS Configuration - Frontend ko backend se communicate karne ke liye
 app.use(cors({
-    origin: 'http://localhost:5173', // Your frontend URL
+    origin: [
+         'http://localhost:5173', // Your local frontend URL
+         'https://chatly-ai-chatbot2.netlify.app/'       //  Netlify URL
+    ],
+    methods: ['GET', 'POST'],
     credentials: true // Cookies allow karne ke liye
 }));
 
