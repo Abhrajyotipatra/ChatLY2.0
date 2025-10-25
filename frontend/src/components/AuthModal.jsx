@@ -190,11 +190,16 @@ const AuthModal = ({ isOpen, onClose, mode, onSuccess }) => {
         try {
             // Use environment variable for backend URL
             const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+            // TEMPORARY DEBUG - Remove after testing
+              console.log('🔍 API_URL:', API_URL);
+              console.log('🔍 import.meta.env:', import.meta.env);
             
             const endpoint = currentMode === 'login' 
                 ? `${API_URL}/api/auth/login`
                 : `${API_URL}/api/auth/register`;
-
+              
+                 console.log('🔍 Full endpoint:', endpoint);  // test purpose to debug
 
             const body = currentMode === 'login'
                 ? { email: formData.email, password: formData.password }
@@ -243,8 +248,8 @@ const AuthModal = ({ isOpen, onClose, mode, onSuccess }) => {
                 <h2>{currentMode === 'login' ? 'Welcome Back!' : 'Create Account'}</h2>
                 <p className="modal-subtitle">
                     {currentMode === 'login' 
-                        ? 'Login to continue chatting with Nova AI' 
-                        : 'Register to start chatting with Nova AI'}
+                        ? 'Login to continue chatting with ChatLY AI' 
+                        : 'Register to start chatting with ChatLY AI'}
                 </p>
 
 
